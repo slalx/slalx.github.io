@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 video buffered ranges demo</title>
+</head>
+<body>
+
+<script>
+
+function cpearce_log(msg) {
+  document.getElementById('buffered_log').innerHTML = msg + "<br>";
+}
+
+function timeRangesToString(r) {
+  var log = "";
+  for (var i=0; i<r.length; i++) {
+    log += "[" + r.start(i) + "," + r.end(i) + "]<br>";
+  }
+  return log;
+}
+
+function updateBuffered() {
+  var v = document.getElementById('buffered_v');
+  var canvas = document.getElementById('buffered_c');
+  var ctx = canvas.getContext('2d');
+  var r = v.buffered;
+  ctx.fillStyle = "black";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "gray";
+  if (r) {
+    for (var i=0; i<r.length; i++) {
+      var start = r.start(i)/v.duration * canvas.width;
+      var end = r.end(i)/v.duration * canvas.width;
+      ctx.fillRect(start, 3, Math.max(2, end-start), 10);
+    }
+    var log = "Buffered:<br>"
+            + timeRangesToString(v.buffered)
+            + "<br>" 
+            + "Seekable:<br>" 
+            + timeRangesToString(v.seekable)
+            + "<br>";
+    document.getElementById("buffered_log").innerHTML = log;
+    ctx.fillStyle = "blue";
+    var x = v.currentTime / v.duration * canvas.width;
+    ctx.fillRect(x, 0, 2, 15);
+  }
+}
+
+function minsecs(ts) {
+  var m = Math.floor(Math.floor(ts % 3600) / 60);
+  var s = Math.floor(ts % 60);
+  return m + ":" + (s < 10 ? "0" : "") + s;
+}
+
+function buffered_seek(event) {
+  var canvas = document.getElementById('buffered_c');
+  var v = document.getElementById('buffered_v');
+  var target = (event.clientX - canvas.offsetLeft) / canvas.width * v.duration;
+  v.currentTime = target;
+  cpearce_log("Seeking to " + target + " (" + minsecs(target) + ")");
+}
+
+function buffered_loaded(event) {
+  var v = document.getElementById('buffered_v');
+  if (!v.buffered) {
+    cpearce_log('Buffered attribute not supported by your browser. Try viewing this page in the latest <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-central/">firefox nightly</a>.\n');
+  } else {
+    cpearce_log("Buffered attribute is supported, click on the black progress bar to seek.");
+    window.setInterval(updateBuffered, 1000)
+  }
+}
+
+</script>
+
+ <!-- Patent_Absurdity_LQ_350kbit.ogv -->
+<video src="http://people.mozilla.com/~cpearce/bruce.webm"
+       id="buffered_v"
+       width="400"
+       height="224"
+       preload="auto"
+       autobuffer
+       onloadedmetadata="buffered_loaded(event);"
+       controls>
+  <p>Requires HTML5 Ogg Theora/Vorbis capable browser.</p>
+</video><br>
+
+<canvas id="buffered_c"
+        width="310"
+        height="15"
+        style="background-color: black; position:relative; margin-top: 2px; left: 25px; border: solid gray 1px;"
+        onclick="buffered_seek(event)";>
+</canvas> <br>
+
+<div id="buffered_log" style="font-size: small;"></div>
+</body>
+</html>
