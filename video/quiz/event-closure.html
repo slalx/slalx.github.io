@@ -56,7 +56,7 @@ for(var i = 0; i < ps.length; i ++) {
 	return false;
 }*/
 
-function isDuplicate(){
+/*function isDuplicate(){
     args = Array.prototype.slice.apply(arguments)
     for(var i=0, len = args.length;i<len;i++){
         if (args.indexOf(args[i]) < i){
@@ -67,8 +67,29 @@ function isDuplicate(){
 }
 
 console.log(isDuplicate(1,2,3));
-console.log(isDuplicate(1,2,1));
+console.log(isDuplicate(1,2,1));*/
+
+
+function isPrime(TheNum){
+var i,k;
+ if(TheNum>1){
+  for(i=2;i<TheNum;i++){
+   k = TheNum%i;
+   if(k == 0){break;}
+  }
+  if(k == 0){
+   retuen false;
+  }else{
+   return true;
+  }
+ }else{
+  return false;
+ }
+
+ isPrime(5);
 
 </script>
+
+
 </body> 
 </html> 
