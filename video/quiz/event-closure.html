@@ -47,7 +47,7 @@ function isDuplicate(){
 	for(var argument in arguments){
 		rs.push(arguments[argument]);
 	}
-	var sortedArray = arguments.sort();
+	var sortedArray = rs.sort();
 	for(var i=0;i<sortedArray.length;i++){
 		if(sortedArray[i]==sortedArray[i+1]){
 			return true;
