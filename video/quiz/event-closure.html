@@ -42,7 +42,7 @@ for(var i = 0; i < ps.length; i ++) {
 }*/
 
 
-function isDuplicate(){
+/*function isDuplicate(){
 	var rs = [];
 	for(var argument in arguments){
 		rs.push(arguments[argument]);
@@ -54,6 +54,16 @@ function isDuplicate(){
 		}
 	}
 	return false;
+}*/
+
+function isDuplicate(){
+    args = Array.prototype.slice.apply(arguments)
+    for(var i=0, len = args.length;i<len;i++){
+        if (args.indexOf(args[i]) < i){
+            return true;
+        }
+    }
+    return false
 }
 
 console.log(isDuplicate(1,2,3));
