@@ -1,0 +1,32 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>事件闭包</title> 
+<meta name="keywords" content="事件闭包" /> 
+<meta name="description" content="事件闭包" /> 
+
+
+
+</head> 
+<body> 
+
+<p>111111111111111111111111</p>
+<p>111111111111111111111111</p>
+<p>111111111111111111111111</p>
+<p>111111111111111111111111</p>
+<p>111111111111111111111111</p>
+<p>111111111111111111111111</p>
+
+<script type="text/javascript">
+for(var i = 0; i < document.getElementsByTagName('p').length; i ++) {
+var item = document.getElementsByTagName('p')[i];
+(function(j) {
+document.getElementsByTagName('p')[i].onclick = function() {
+item.style.backgroundColor='#eee';
+}
+}(i))
+}
+</script>
+</body> 
+</html> 
