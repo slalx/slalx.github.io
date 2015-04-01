@@ -19,14 +19,22 @@
 <p>111111111111111111111111</p>
 
 <script type="text/javascript">
-for(var i = 0; i < document.getElementsByTagName('p').length; i ++) {
-var item = document.getElementsByTagName('p')[i];
-(function(j) {
-document.getElementsByTagName('p')[i].onclick = function() {
-item.style.backgroundColor='#eee';
+
+
+var ps = document.getElementsByTagName('p');
+
+for(var i = 0; i < ps.length; i ++) {
+	var item = ps[i];
+
+	document.getElementsByTagName('p')[i].onclick = (function(item){
+		return function() {
+			item.style.backgroundColor='#eee';
+		}
+	})(item)
+
 }
-}(i))
-}
+
+
 </script>
 </body> 
 </html> 
