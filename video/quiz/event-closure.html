@@ -103,7 +103,7 @@ iArray.sort(des);
 console.log(iArray);*/
 
 
-function range(){
+/*function range(){
     var arr = [];
     var arg = arguments;
     if(arg.length == 1) {
@@ -128,8 +128,18 @@ function range(){
     return arr;
 }
 
-console.log(range(1,10,2));
+console.log(range(1,10,2));*/
 
+
+
+for(var i = 0; i < document.getElementsByTagName('p').length; i ++) {
+var item = document.getElementsByTagName('p')[i];
+(function(j) {
+document.getElementsByTagName('p')[j].onclick = function() {
+item.style.backgroundColor='#eee';
+}
+}(i))
+}
 </script>
 
 
