@@ -1,0 +1,80 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>事件闭包</title> 
+<meta name="keywords" content="事件闭包" /> 
+<meta name="description" content="事件闭包" /> 
+
+
+
+</head> 
+<body> 
+
+<style>
+    .netflix-player-wrapper {
+        font-size: 16px;
+    }
+    #netflix-player {
+        position: absolute;
+        width: 90%; height: 90%;
+        left: 5%; top: 5%;
+        overflow: hidden;
+        background: #ccc;
+        font-size: 1em;
+    }
+    #player-sizing {
+        position: absolute;
+        width: 1em; height: 1em;
+        visibility: hidden;
+        font-size: 1em;
+    }
+    #ten-percent-height {
+        position: absolute;
+        width: 80%; height: 10em;
+        left: 10%; bottom: 8em;
+        background: #000;
+        display: flex;
+    }    
+    #ten-percent-height > p {
+        display: block;
+        margin: 1em;
+        font-size: 2em;
+        color: #fff;
+    }
+</style>
+<div class="netflix-player-wrapper">
+    <div id="netflix-player">
+        <div id="player-sizing"></div>
+        <div id="ten-percent-height"><p>Text</p></div>
+    </div>
+</div>
+<script>
+(function () {
+    var sizingEl = document.getElementById("player-sizing"),
+        controlWrapperEl = document.getElementById('netflix-player'),
+        currentEmSize = 1.0;
+                   
+    function resize() {
+        var wrapperHeight = controlWrapperEl.getBoundingClientRect().height,
+            sizingHeight = sizingEl.getBoundingClientRect().height,
+            wrapperOnePercentHeight = wrapperHeight / 100,
+            offsetSize;
+
+        if (sizingHeight > wrapperOnePercentHeight) {
+            offsetSize = sizingHeight / wrapperOnePercentHeight;
+            currentEmSize = currentEmSize / offsetSize;
+        } else if (wrapperOnePercentHeight > sizingHeight) {
+            offsetSize = wrapperOnePercentHeight / sizingHeight;
+            currentEmSize = currentEmSize * offsetSize;
+        }
+        controlWrapperEl.style.fontSize = currentEmSize + "em";
+    }
+                
+    window.addEventListener("resize", resize, false);
+    resize();
+})();
+</script>
+
+</body>
+</html>
