@@ -10,7 +10,8 @@
 
 </head> 
 <body> 
-
+<input type="file" id="J_file" onchange="showPreview(this)" />  
+    <img id="portrait" src="" width="70" height="75"> 
 <p>111111111111111111111111</p>
 <p>111111111111111111111111</p>
 <p>111111111111111111111111</p>
@@ -132,14 +133,28 @@ console.log(range(1,10,2));*/
 
 
 
-for(var i = 0; i < document.getElementsByTagName('p').length; i ++) {
+/*for(var i = 0; i < document.getElementsByTagName('p').length; i ++) {
   var item = document.getElementsByTagName('p')[i];
   (function(j) {
     document.getElementsByTagName('p')[i].onclick = function() {
       this.style.backgroundColor='#eee';
     }
   })(i)
-}
+}*/
+
+
+
+            function showPreview(source) {  
+            var file = source.files[0]; 
+              if(window.FileReader) {  
+                var fr = new FileReader();  
+                fr.onloadend = function(e) {  
+                    document.getElementById("portrait").src = e.target.result;  
+                };  
+                fr.readAsDataURL(file);  
+            }  
+        }  
+
 </script>
 
 
