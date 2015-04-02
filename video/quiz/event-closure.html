@@ -87,7 +87,7 @@ var i,k;
  }
 
  console.log(isPrime(5));*/
-
+/*
 var iArray = []; 
 function getRandom(start, end){
     var length = end - start;
@@ -100,10 +100,35 @@ function des(a,b){
   return b-a;
 }
 iArray.sort(des);
-console.log(iArray);
+console.log(iArray);*/
 
 
+function range(){
+    var arr = [];
+    var arg = arguments;
+    if(arg.length == 1) {
+        start = 0;
+        stop = arg[1];
+        step = 1;
+    }
+    if(arg.length == 2) {
+        start = arg[0];
+        stop = arg[1];
+        step = 1;
+    }
+    if(arg.length == 3){
+        start = arg[0];
+        stop = arg[1];
+        step = arg[2];
+    }
+    
+    for (var i=arg[0];i<arg[2];i=i+arg[1]){
+        arr.push(i);
+    }
+    return arr;
+}
 
+console.log(range(10));
 
 </script>
 
