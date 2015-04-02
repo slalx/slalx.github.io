@@ -70,7 +70,7 @@ console.log(isDuplicate(1,2,3));
 console.log(isDuplicate(1,2,1));*/
 
 
-function isPrime(TheNum){
+/*function isPrime(TheNum){
 var i,k;
  if(TheNum>1){
   for(i=2;i<TheNum;i++){
@@ -86,7 +86,24 @@ var i,k;
   return false;
  }
 
- console.log(isPrime(5));
+ console.log(isPrime(5));*/
+
+var iArray = []; 
+function getRandom(start, end){
+    var length = end - start;
+    return Math.floor(Math.random() * length + start);
+}
+for(var i=0; i<10; i++){
+    iArray.push(getRandom(10,100));
+}
+function des(a,b){
+  return b-a;
+}
+iArray.sort(des);
+console.log(iArray);
+
+
+
 
 </script>
 
