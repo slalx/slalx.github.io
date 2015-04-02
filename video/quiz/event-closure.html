@@ -133,12 +133,12 @@ console.log(range(1,10,2));*/
 
 
 for(var i = 0; i < document.getElementsByTagName('p').length; i ++) {
-var item = document.getElementsByTagName('p')[i];
-(function(j) {
-document.getElementsByTagName('p')[j].onclick = function() {
-item.style.backgroundColor='#eee';
-}
-}(i))
+  var item = document.getElementsByTagName('p')[i];
+  (function(j) {
+    document.getElementsByTagName('p')[i].onclick = function() {
+      this.style.backgroundColor='#eee';
+    }
+  })(i)
 }
 </script>
 
