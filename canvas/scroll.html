@@ -51,7 +51,15 @@ var images = [
 ];
 
 
-for (var i = 0,l=images.length; i < l; i++) {
+var img = new Image();
+img.onload = function(){
+    ctx.drawImage(img, 0+width*1+margin*1, 0);
+}
+
+img.src = images[0];
+
+
+/*for (var i = 0,l=images.length; i < l; i++) {
     var img = new Image();
     debugger;
 
@@ -68,7 +76,7 @@ for (var i = 0,l=images.length; i < l; i++) {
     img.src = images[i];
 
 
-};
+};/*
 
 
 
