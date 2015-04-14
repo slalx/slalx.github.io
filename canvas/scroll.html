@@ -33,7 +33,7 @@ for (var i = 0; i <= count; i++) {
     if(i==0){
          ctx.strokeRect(0,0,width,height);
      }else if(0<i<count){
-        ctx.strokeRect(0+width+margin,0,width,height);
+        ctx.strokeRect(0+width*i+margin*i,0,width,height);
      }else if(i==count){
         ctx.strokeRect(0+width,0,width,height);
      }
