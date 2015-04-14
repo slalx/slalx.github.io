@@ -29,9 +29,10 @@ var canvas = document.getElementById('J_Scroll'),
     count = 10;
 
 for (var i = 0; i <= count; i++) {
+    debugger;
     if(i==0){
          ctx.strokeRect(0,0,width,height);
-     }else if(i<0<count){
+     }else if(0<i<count){
         ctx.strokeRect(0+width+margin,0,width,height);
      }else if(i==count){
         ctx.strokeRect(0+width,0,width,height);
