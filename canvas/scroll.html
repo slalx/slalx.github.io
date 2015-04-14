@@ -23,20 +23,51 @@
 
 var canvas = document.getElementById('J_Scroll'),
     ctx = canvas.getContext("2d"),
-    width= 75,
-    height = 75,
+    viewportWidth = window.innerWidth,
+    width= 192,
+    height = 168,
     margin = 5,
     count = 10;
 
-for (var i = 0; i <= count; i++) {
+
+
+
+
+canvas.setAttribute('width',viewportWidth);
+
+ctx.strokeRect(0,0,width,height);
+
+var images = [
+    './img/0.jpg',
+    './img/1.jpg',
+    './img/2.jpg',
+    './img/3.jpg',
+    './img/4.jpg',
+    './img/5.jpg',
+    './img/6.jpg',
+    './img/8.jpg',
+    './img/9.jpg'
+
+];
+
+
+for (var i = 0,l=images.length; i < l; i++) {
+    var img = new Image();
     debugger;
-    if(i==0){
-         ctx.strokeRect(0,0,width,height);
-     }else if(0<i<count){
-        ctx.strokeRect(0+width*i+margin*i,0,width,height);
-     }else if(i==count){
-        ctx.strokeRect(0+width,0,width,height);
-     }
+
+    img.onload = function(){
+        if(i==0){
+             ctx.drawImage(img, 0, 0, width, height);
+         }else if(0<i<count){
+            ctx.drawImage(img, 0+width*i+margin*i, 0);
+         }else if(i==count){
+            ctx.drawImage(img, 0+width, 0, width, height);
+         }        
+    }
+
+    img.src = images[i];
+
+
 };
 
 
