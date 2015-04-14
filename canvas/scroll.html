@@ -59,7 +59,7 @@ img.onload = function(){
 img.src = images[0];
 
 
-/*for (var i = 0,l=images.length; i < l; i++) {
+for (var i = 0,l=images.length; i < l; i++) {
     var img = new Image();
     debugger;
 
@@ -67,7 +67,7 @@ img.src = images[0];
         if(i==0){
              ctx.drawImage(img, 0, 0, width, height);
          }else if(0<i<count){
-            ctx.drawImage(img, 0+width*i+margin*i, 0);
+            ctx.drawImage(img, 0+width*i+margin*i, height);
          }else if(i==count){
             ctx.drawImage(img, 0+width, 0, width, height);
          }        
@@ -76,7 +76,7 @@ img.src = images[0];
     img.src = images[i];
 
 
-};*/
+};
 
 
 
