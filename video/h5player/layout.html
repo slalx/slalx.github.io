@@ -61,11 +61,13 @@
             sizingHeight = sizingEl.getBoundingClientRect().height,
             wrapperOnePercentHeight = wrapperHeight / 100,
             offsetSize;
-
+console.log(wrapperHeight);
         if (sizingHeight > wrapperOnePercentHeight) {
+            console.log('sizingHeight > wrapperOnePercentHeight');
             offsetSize = sizingHeight / wrapperOnePercentHeight;
             currentEmSize = currentEmSize / offsetSize;
         } else if (wrapperOnePercentHeight > sizingHeight) {
+            console.log('wrapperOnePercentHeight > sizingHeight');
             offsetSize = wrapperOnePercentHeight / sizingHeight;
             currentEmSize = currentEmSize * offsetSize;
         }
