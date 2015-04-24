@@ -2,9 +2,9 @@
 <html> 
 <head> 
 <meta charset="utf-8"> 
-<title>事件闭包</title> 
-<meta name="keywords" content="事件闭包" /> 
-<meta name="description" content="事件闭包" /> 
+<title>响应式布局</title> 
+<meta name="keywords" content="响应式布局" /> 
+<meta name="description" content="响应式布局" /> 
 
 
 
@@ -28,6 +28,7 @@
         width: 1em; height: 1em;
         visibility: hidden;
         font-size: 1em;
+        background: red;
     }
     #ten-percent-height {
         position: absolute;
@@ -52,11 +53,11 @@
 <script>
 (function () {
     var sizingEl = document.getElementById("player-sizing"),
-        controlWrapperEl = document.getElementById('netflix-player'),
+        playerEl = document.getElementById('netflix-player'),
         currentEmSize = 1.0;
                    
     function resize() {
-        var wrapperHeight = controlWrapperEl.getBoundingClientRect().height,
+        var wrapperHeight = playerEl.getBoundingClientRect().height,
             sizingHeight = sizingEl.getBoundingClientRect().height,
             wrapperOnePercentHeight = wrapperHeight / 100,
             offsetSize;
@@ -68,7 +69,7 @@
             offsetSize = wrapperOnePercentHeight / sizingHeight;
             currentEmSize = currentEmSize * offsetSize;
         }
-        controlWrapperEl.style.fontSize = currentEmSize + "em";
+        playerEl.style.fontSize = currentEmSize + "em";
     }
                 
     window.addEventListener("resize", resize, false);
