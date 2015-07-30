@@ -20,22 +20,16 @@
 
 function* range(start, stop) {
   for (var i = start; i < stop; i++)
-    debugger;
     yield i;
 }
 
-
-function go(){
-
+window.go = function go() {
   var start = 1;
-  var stop = 10;
-
+  var stop = 3;
   for (var value of range(start, stop)) {
     alert("Ding! at floor #" + value);
   }
-
-
-}
+};
 
 go();
 
