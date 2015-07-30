@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>destrucring</title> 
+<meta name="keywords" content="destrucring" /> 
+<meta name="description" content="destrucring" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+'use strict';
+function mangle(json) {
+    let { id, status, data: number } = json;
+        console.log(id, status, number);
+// 42, OK, [867, 5309]
+}
+mangle(
+ { id: 42, status: "OK", data: [867, 5309] }
+);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
