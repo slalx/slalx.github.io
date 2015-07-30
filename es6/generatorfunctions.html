@@ -24,7 +24,13 @@ function* range(start, stop) {
     yield i;
 }
 
-range(1,10);
+var start = 1;
+var stop = 10;
+
+for (var value of range(start, stop)) {
+    alert("Ding! at floor #" + value);
+  }
+
 
 
 /*function splitIntoRows(icons, rowLength) {
