@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>generator functions</title> 
+<meta name="keywords" content="generator functions" /> 
+<meta name="description" content="generator functions" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+
+
+
+function* range(start, stop) {
+  for (var i = start; i < stop; i++)
+    debugger;
+    yield i;
+}
+
+range();
+
+
+/*function splitIntoRows(icons, rowLength) {
+  var rows = [];
+  for (var i = 0; i < icons.length; i += rowLength) {
+    rows.push(icons.slice(i, i + rowLength));
+  }
+  return rows;
+}
+
+
+function* splitIntoRows(icons, rowLength) {
+  for (var i = 0; i < icons.length; i += rowLength) {
+    yield icons.slice(i, i + rowLength);
+  }
+}*/
+
+</script>
+
+</body>
+</html>

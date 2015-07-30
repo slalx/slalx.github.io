@@ -1,0 +1,75 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>arrow functions</title> 
+<meta name="keywords" content="arrow functions" /> 
+<meta name="description" content="arrow functions" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+//es5
+$("#confetti-btn").click(function (event) {
+  playTrumpet();
+  fireConfettiCannon();
+});
+
+//es6
+$("#confetti-btn").click(event => {
+  playTrumpet();
+  fireConfettiCannon();
+});
+
+//一个参数
+// ES5
+var selected = allJobs.filter(function (job) {
+  return job.isSelected();
+});
+
+// ES6
+var selected = allJobs.filter(job => job.isSelected());
+
+//多个参数
+// ES5
+var total = values.reduce(function (a, b) {
+  return a + b;
+}, 0);
+
+// ES6
+var total = values.reduce((a, b) => a + b, 0);
+
+
+{
+  ...
+  addAll: function addAll(pieces) {
+    var self = this;
+    _.each(pieces, function (piece) {
+      self.add(piece);
+    });
+  },
+  ...
+}
+
+// ES6 with method syntax
+{
+  ...
+  addAll(pieces) {
+    _.each(pieces, piece => this.add(piece));
+  },
+  ...
+}
+
+
+
+
+</script>
+
+</body>
+</html>

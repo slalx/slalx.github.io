@@ -1,0 +1,38 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>template string</title> 
+<meta name="keywords" content="template string" /> 
+<meta name="description" content="template string" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+
+$("#result").append(
+  "There are <b>" + basket.count + "</b> " +
+  "items in your basket, " +
+  "<em>" + basket.onSale + 
+  "</em> are on sale!"
+);
+
+
+$("#result").append(`
+  There are <b>${basket.count}</b> items
+   in your basket, <em>${basket.onSale}</em>
+  are on sale!`
+);
+
+
+
+</script>
+
+</body>
+</html>

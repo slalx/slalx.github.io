@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>function default parameters</title> 
+<meta name="keywords" content="function default parameters" /> 
+<meta name="description" content="function default parameters" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+function animalSentence(animals2="tigers", animals3="bears") {
+    return `Lions and ${animals2} and ${animals3}! Oh my!`;
+}
+
+animalSentence(undefined, "unicorns")//Lions and tigers and unicorns! Oh my!
+
+animalSentence(); //Lions and tigers and bears! Oh my!
+animalSentence("elephants"); //Lions and elephants and bears! Oh my!
+ animalSentence("elephants", "whales"); //Lions and elephants and whales! Oh my!
+
+
+
+function animalSentenceFancy(animals2="tigers",
+    animals3=(animals2 == "bears") ? "sealions" : "bears")
+{
+  return `Lions and ${animals2} and ${animals3}! Oh my!`;
+}
+
+function myFunc(a=42, b) {}
+function myFunc(a=42, b=undefined) {}
+
+
+</script>
+
+</body>
+</html>

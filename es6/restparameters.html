@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>function rest parameters</title> 
+<meta name="keywords" content="function rest parameters" /> 
+<meta name="description" content="function rest parameters" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+function containsAll(haystack) {
+  for (var i = 1; i < arguments.length; i++) {
+    var needle = arguments[i];
+    if (haystack.indexOf(needle) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+function containsAll(haystack, ...needles) {
+  for (var needle of needles) {
+    if (haystack.indexOf(needle) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+
+
+</script>
+
+</body>
+</html>

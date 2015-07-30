@@ -15,20 +15,34 @@
 
 <script>
 
-'use strict';
 function mangle(json) {
     'use strict';
     let { id, status, data: number } = json;
         console.log(id, status, number);
-// 42, OK, [867, 5309]
+    // 42, OK, [867, 5309]
 }
+
 mangle(
  { id: 42, status: "OK", data: [867, 5309] }
 );
 
 
+var [foo, [[bar], baz]] = [1, [[2], 3]];
+console.log(foo);
+// 1
+console.log(bar);
+// 2
+console.log(baz);
+// 3
 
 
+
+var first = someArray[0];
+var second = someArray[1];
+var third = someArray[2];
+
+
+var [first, second, third] = someArray;
 
 
 </script>
