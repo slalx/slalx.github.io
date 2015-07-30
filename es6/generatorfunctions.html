@@ -19,17 +19,23 @@
 
 
 function* range(start, stop) {
-  for (var i = start; i < stop; i++)
+  for (var i = start; i < stop; i++){
     yield i;
+  }   
 }
 
-window.go = function go() {
-  var start = 0;
-  var stop = 3;
+
+function go(){
+
+  var start = 1;
+  var stop = 10;
+
   for (var value of range(start, stop)) {
     alert("Ding! at floor #" + value);
   }
-};
+
+
+}
 
 go();
 
