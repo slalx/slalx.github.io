@@ -16,6 +16,7 @@
 <script>
 
 
+
 var myIterable = {}
 myIterable[Symbol.iterator] = function* () {
     yield 1;
@@ -26,6 +27,14 @@ myIterable[Symbol.iterator] = function* () {
 for(var x of myIterable){
   console.log(x);
 }
+
+'use strict';
+    
+let arr = ['foo', 'bar', 'baz'];
+for (let [index,element] of arr.entries()) {
+  console.log(index + '. ' + element);
+}
+
 
 
 </script>
