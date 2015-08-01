@@ -15,6 +15,20 @@
 
 <script>
 
+    function createArrayIterator(arr) {
+        let index = 0;
+        return {
+            next() {
+                if (index < arr.length) {
+                    return { done: false, value: arr[index++] };
+                } else {
+                    return { done: true };
+                }
+            }
+        }
+    }
+
+
 
 
 var myIterable = {}

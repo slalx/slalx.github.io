@@ -1,0 +1,60 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>symbol</title> 
+<meta name="keywords" content="symbol" /> 
+<meta name="description" content="symbol" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+//es5
+element.isMoving = false;
+if (element.isMoving) {
+  smoothAnimations(element);
+}
+element.isMoving = true;
+
+
+//es6
+var isMoving = Symbol("isMoving");
+if (element[isMoving]) {
+  smoothAnimations(element);
+}
+element[isMoving] = true;
+
+
+
+function makeNoise_async() {
+  return Q.async(function* () {
+    yield shake_async();
+    yield rattle_async();
+    yield roll_async();
+  });
+}
+
+
+let arr = [3, 5, 7];
+arr.foo = "hello";
+
+for (let i in arr) {
+   console.log(i); // logs "0", "1", "2", "foo"
+}
+
+for (let i of arr) {
+   console.log(i); // logs "3", "5", "7"
+}
+
+
+
+</script>
+
+</body>
+</html>
