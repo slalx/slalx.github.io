@@ -28,13 +28,19 @@ for(var x of myIterable){
   console.log(x);
 }
 
-'use strict';
-    
-let arr = ['foo', 'bar', 'baz'];
-for (let [index,element] of arr.entries()) {
-  console.log(index + '. ' + element);
+function loopArray(){
+  'use strict';
+
+  let arr = ['foo', 'bar', 'baz'];
+
+  for (let [index,element] of arr.entries()) {
+    console.log(index + '. ' + element);
+  }
+
 }
 
+
+loopArray();
 
 
 </script>
