@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>Delegator Generator</title> 
+<meta name="keywords" content="Delegator Generator" /> 
+<meta name="description" content="Delegator Generator" /> 
+
+
+
+</head> 
+<body> 
+
+
+
+<script>
+
+
+
+var consoleLogThunk = function(msg) {
+    return function() {
+        console.log(msg);
+      }
+}
+ 
+var generator = function*() {
+    yield consoleLogThunk("Yo");
+    yield consoleLogThunk("Dawg");
+    yield consoleLogThunk("!!!");
+}
+ 
+var delegator_function = function* () {
+    yield consoleLogThunk("I yielded before delegated yield");
+    yield* generator();
+    yield consoleLogThunk("I yielded after delegated yield");
+}
+ 
+var k = delegator_function();
+ 
+k.next().value();
+k.next().value();
+k.next().value();
+ 
+console.log(k.next());
+
+
+</script>
+
+</body>
+</html>
