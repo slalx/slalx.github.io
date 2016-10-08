@@ -11,4 +11,14 @@
 > 这篇文章重点讲了medium,google,facebook是如何实现图片等预览技术的
 
 
+* api设计
 
+1. <http://www.infoq.com/cn/articles/api-facades>
+
+* 应用架构模式
+
+1. <http://www.ebpml.org/blog15/2016/01/sam-a-functional-approach-to-ui-construction/>
+
+> SAM
+
+2. 
